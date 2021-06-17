@@ -26,7 +26,7 @@ namespace JAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Entry>>> GetEntries()
         {
-            return await _context.Entries.ToListAsync();
+            return await _context.Entries.OrderByDescending(o => o.EntryDate).ToListAsync();
         }
 
         // GET: api/Entries/5
